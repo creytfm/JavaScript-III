@@ -16,7 +16,18 @@
 // Principle 2
 
 // code example for Implicit Binding
+var Animal = function(name, age){
+    return{
+        name: name,
+        age: age,
+        sayName: function(){
+            console.log(this.name);
+      },
+    }
+  };
 
+var micah = Animal('micah', 10);
+micah.sayName();
 // Principle 3
 
 // code example for New Binding
@@ -24,23 +35,12 @@
 // Principle 4
 
 // code example for Explicit Binding
-
-var Animal = function(name, age){
-    return{
-        name: name,
-        age: age,
-        sayName: function(){
-            console.log(this.name);
-        },
-    dog: {
-    name: 'Luna',
-    sayName: function(){
-        console.log(this.name);
-      }
-    }
-  };
+var sayAge = function(){
+    console.log('My age is' + " ", this.age + " " +',My name is' + " ", this.name );
+};
+var chris = {
+    name: 'Chris',
+    age: 31
 };
 
-var Micah = Animal('Micah', 42);
-Micah.sayName();
-Micah.Luna.sayName();
+sayAge.call(chris);
